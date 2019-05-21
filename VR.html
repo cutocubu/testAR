@@ -1,0 +1,12 @@
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<script>THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'</script>
+
+<body style='margin : 0px; overflow: hidden;'>
+
+    <a-scene background="color: red">
+        <a-entity position="-1 0.5 -6" rotation="0 0 0" gltf-model="Bee.glb" scale="0.3 0.3 0.3" animation-mixer fix-scale>
+            <a-animation attribute="rotation" easing= "linear" dur= "5500" repeat="indefinite" to="0 360 0"></a-animation>
+        </a-entity>
+
+    </a-scene>
+</body>
