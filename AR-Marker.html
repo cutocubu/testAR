@@ -9,20 +9,40 @@
     <a-scene vr-mode-ui="enabled: false" embedded arjs='sourceType: webcam;' camera touch-controls>
         <a-entity id="animated-marker" position='0 0.5 0' gltf-model="Bee.glb" scale="0.05 0.05 0.05" animation-mixer fix-scale></a-entity>
 
-        <a-marker-camera type="pattern" preset="custom" url="pattern-64572417_442039776342731_2891433070987051008_n.patt"></a-marker-camera>
+        <a-marker-camera id="audio-marker" type="pattern" preset="custom" url="pattern-62424429_419516828633695_4246402743574462464_n.patt"></a-marker-camera>
     </a-scene>
 </body>
 <script>
-    
-AFRAME.registerComponent('markerhandler', {
+    //To avoid playing from start if the marker flickers, not sure if needed, but it might be a failsafe when you have mutiple markers and want to make sure the first finishes before launching the second
+var playing = false;
 
-    init: function() {
-        const animatedMarker = document.querySelector("#animated-marker");
-        // every click, we make our model grow in size :)
-        animatedMarker.addEventListener('click', function () {
-             location.href = "www.yoursite.com";
-        });
-}});
+//HTML5 audio, will need user touch input to start on mobile
+var intro = new Audio("test.mp3");
+
+//Detect end of audio
+intro.addEventListener("ended", function() {
+	intro.currentTime = 0;
+	playing = false;
+});
+
+AFRAME.registerComponent('teo', {
+	init: function() {
+		// Set up the tick throttling. Will check if marker is active every 500ms
+		this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
+	},
+	tick: function(t, dt) {
+		
+		if (document.querySelector("#audio-marker").object3D.visible == true && playing == false) {
+			// MARKER IS PRESENT
+			intro.play();
+            playing = true;
+            console.log(123);
+		} else {
+			// MARKER IS HIDDEN, do nothing (up to you)
+		}
+
+	}
+});
 </script>
 <!--<script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
 <script src="https://google-ar.github.io/three.ar.js/dist/three.ar.js"></script>
