@@ -11,18 +11,21 @@
             <audio id="sound" src="test.mp3" preload="auto"></audio>
         </a-assets>
 
-        <a-entity soundhandler position='0 0.5 0' gltf-model="Bee.glb" scale="0.05 0.05 0.05" animation-mixer fix-scale ></a-entity>
 
-        <a-marker-camera id="audio-marker" type="pattern" preset="custom" url="pattern-marvy.patt">
-        </a-marker-camera>
+
+        <a-marker id="audio-marker" type="pattern" preset="custom" url="pattern-marvy.patt">
+            <a-entity position='0 0.5 0' gltf-model="Bee.glb" scale="0.05 0.05 0.05" animation-mixer fix-scale soundhandler></a-entity>
+        </a-marker>
         <a-entity sound="src: #sound" autoplay="false"></a-entity>
+        <a-entity camera></a-entity>
+
     </a-scene>
 </body>
 <script>
 AFRAME.registerComponent('soundhandler', {
     tick: function () {
            var entity = document.querySelector('[sound]');
-         if (document.querySelector('a-marker-camera').object3D.visible == true) {
+         if (document.querySelector('a-marker').object3D.visible == true) {
             entity.components.sound.playSound();
         } else {
             entity.components.sound.pauseSound();
