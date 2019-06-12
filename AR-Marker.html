@@ -7,7 +7,7 @@
 <body style='margin : 0px; overflow: hidden;'>
 
     <a-scene vr-mode-ui="enabled: false" embedded arjs='sourceType: webcam;' camera touch-controls>
-        <a-entity id="animated-marker" position='0 0.5 0' gltf-model="Bee.glb" scale="0.05 0.05 0.05" animation-mixer fix-scale></a-entity>
+        <a-entity sound="src: url(test.mp3); autoplay: true" id="animated-marker" position='0 0.5 0' gltf-model="Bee.glb" scale="0.05 0.05 0.05" animation-mixer fix-scale></a-entity>
 
         <a-marker-camera id="audio-marker" type="pattern" preset="custom" url="pattern-marvy.patt"></a-marker-camera>
     </a-scene>
