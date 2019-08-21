@@ -18,66 +18,131 @@
 </script>
 <body style='margin : 0px; overflow: hidden;'>
 
-    <a-scene vr-mode-ui="enabled: false"  camera touch-controls background="color: red">
-        <a-entity position="-1 0.5 -6" rotation="0 0 0" gltf-model="Bee.glb" scale="0.3 0.3 0.3" animation-mixer cursor="rayOrigin: mouse" fix-scale animation=" property: rotation; to: 0 360 0; loop: true; dur: 10000"  animation__2="property: position;to: 1 2 6;loop: true; dur: 10000;">
+    <a-scene vr-mode-ui="enabled: false" camera touch-controls background="color: red">
 
-        </a-entity>
+        <!--<a-entity position="-1 0.5 -6" rotation="0 0 0" gltf-model="Bee.glb" scale="0.3 0.3 0.3" animation-mixer cursor="rayOrigin: mouse" fix-scale animation=" property: rotation; to: 0 360 0; loop: true; dur: 10000"  animation__2="property: position;to: 1 2 6;loop: true; dur: 10000;">
+
+    </a-entity>-->
         <!--<a-assets>
-            <a-asset id="cesium-man" src="https://cdn.rawgit.com/KhronosGroup/glTF-Sample-Models/29355d23/2.0/CesiumMan/glTF-Binary/CesiumMan.glb"></a-asset>
-        </a-assets>-->
+        <a-asset id="cesium-man" src="https://cdn.rawgit.com/KhronosGroup/glTF-Sample-Models/29355d23/2.0/CesiumMan/glTF-Binary/CesiumMan.glb"></a-asset>
+    </a-assets>-->
         <!--<a-entity id="walker">
-            <a-entity gltf-model="#cesium-man" scale="1 1 1" rotation="0 -90 0" animation-mixer
-                      shadow="cast: true">
-            </a-entity>
-            <a-plane width="0.5" height="0.5" position="0 0 0" rotation="-90 0 0"
-                     color="white" shadow="receive: true" shadow-material></a-plane>
-        </a-entity>-->
-        <a-ring id="cursor" color="teal" radius-inner="0.02" radius-outer="0.03" position="0 -3 -3" rotation="-90 0 0"></a-ring>
+        <a-entity gltf-model="#cesium-man" scale="1 1 1" rotation="0 -90 0" animation-mixer
+                  shadow="cast: true">
+        </a-entity>
+        <a-plane width="0.5" height="0.5" position="0 0 0" rotation="-90 0 0"
+                 color="white" shadow="receive: true" shadow-material></a-plane>
+    </a-entity>-->
+        <!--<a-ring id="cursor" color="teal" radius-inner="0.02" radius-outer="0.03" position="0 -3 -3" rotation="-90 0 0"></a-ring>-->
         <a-assets>
-            <img id="city" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
-            <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
-            <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
-            <img id="sechelt-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
-            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-            <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-            <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+            <img id="p1" src="SAM_100_0020.jpg">
+            <img id="p2" src="SAM_100_0021.jpg">
+            <img id="p3" src="SAM_100_0022.jpg">
 
+            <!--<img id="city" crossorigin="anonymous" src="61799534_1635187139950473_5272406422691250176_n.jpg">
+        <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+        <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
+        <img id="sechelt-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+        <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
+        <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">-->
             <!-- Image link template to be reused. -->
-            <script id="link" type="text/html">
-                <a-entity class="link"
-                          geometry="primitive: plane; height: 1; width: 1"
-                          material="shader: flat; src: ${thumb}"
-                          event-set__mouseenter="scale: 1.2 1.2 1"
-                          event-set__mouseleave="scale: 1 1 1"
-                          event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
-                          proxy-event="event: click; to: #image-360; as: fade"
-                          sound="on: click; src: #click-sound"></a-entity>
-            </script>
+            <!--<script id="link" type="text/html">
+            <a-entity class="link"
+                      geometry="primitive: plane; height: 1; width: 1"
+                      material="shader: flat; src: ${thumb}"
+                      event-set__mouseenter="scale: 1.2 1.2 1"
+                      event-set__mouseleave="scale: 1 1 1"
+                      event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
+                      proxy-event="event: click; to: #image-360; as: fade"
+                      sound="on: click; src: #click-sound"></a-entity>
+        </script>-->
         </a-assets>
-
+        <a-sky id="skybox" src="#p1"> </a-sky>
+        <a-entity id="cam" camera position="0 1.6 0" look-controls>
+            <a-entity cursor="fuse:true;fuseTimeout:2000"
+                      geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.02"
+                      position="0 0 -1.8"
+                      material="shader:flat;color:#ff0000"
+                      animation__mouseenter="property:scale;to:3 3 3;startEvents:mouseenter;endEvents:mouseleave;dir:reverse;dur:2000;loop:1">
+            </a-entity>
+        </a-entity>
+        <a-entity id="spots" hotspots>
+            <a-entity id="group-point1">
+                <a-image spot="linkto:#p2;spotgroup:group-point2" position="10 0 0"></a-image>
+            </a-entity>
+            <a-entity id="group-point2" scale="0 0 0">
+                <a-image spot="linkto:#p1;spotgroup:group-point1" position="-12 0 -8"></a-image>
+                <a-image spot="linkto:#p3;spotgroup:group-point3" position="10 0 -8"></a-image>
+            </a-entity>
+            <a-entity id="group-point3" scale="0 0 0">
+                <a-image spot="linkto:#p2;spotgroup:group-point2" position="-10 0 3"></a-image>
+            </a-entity>
+        </a-entity>
         <!-- 360-degree image. -->
-        <a-sky id="image-360" radius="10" src="#city"
-               animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
-               animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
-
+        <!--<a-sky id="image-360" radius="10" src="#city"
+    animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+    animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>-->
         <!-- Image links. -->
-        <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
-            <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb" onclick="location.href = 'https://stackoverflow.com/questions/16562577/how-can-i-make-a-button-redirect-my-page-to-another-page'"></a-entity>
-            <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
-            <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
-        </a-entity>
-
+        <!--<a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
+        <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb" onclick="location.href = 'https://stackoverflow.com/questions/16562577/how-can-i-make-a-button-redirect-my-page-to-another-page'"></a-entity>
+        <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
+    </a-entity>-->
         <!-- Camera + cursor. -->
-        <a-entity id="camera" camera look-controls>
-            <a-cursor id="cursor"
-                      animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
-                      animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
-                      event-set__mouseenter="_event: mouseenter; color: springgreen"
-                      event-set__mouseleave="_event: mouseleave; color: black"
-                      raycaster="objects: .link"></a-cursor>
-        </a-entity>
+        <!--<a-entity id="camera" camera look-controls>
+        <a-cursor id="cursor"
+                  animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+                  animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+                  event-set__mouseenter="_event: mouseenter; color: springgreen"
+                  event-set__mouseleave="_event: mouseleave; color: black"
+                  raycaster="objects: .link"></a-cursor>
+    </a-entity>-->
     </a-scene>
 </body>
+<script src="https://unpkg.com/aframe-look-at-component@0.5.1/dist/aframe-look-at-component.min.js"></script>
+<script>
+    AFRAME.registerComponent('hotspots', {
+        init: function () {
+            this.el.addEventListener('reloadspots', function (evt) {
+
+                //get the entire current spot group and scale it to 0
+                var currspotgroup = document.getElementById(evt.detail.currspots);
+                currspotgroup.setAttribute("scale", "0 0 0");
+
+                //get the entire new spot group and scale it to 1
+                var newspotgroup = document.getElementById(evt.detail.newspots);
+                newspotgroup.setAttribute("scale", "1 1 1");
+            });
+        }
+    });
+    AFRAME.registerComponent('spot', {
+        schema: {
+            linkto: { type: "string", default: "" },
+            spotgroup: { type: "string", default: "" }
+        },
+        init: function () {
+
+            //add image source of hotspot icon
+            this.el.setAttribute("src", "hotspot.png");
+            //make the icon look at the camera all the time
+            this.el.setAttribute("look-at", "#cam");
+
+            var data = this.data;
+
+            this.el.addEventListener('click', function () {
+                //set the skybox source to the new image as per the spot
+                var sky = document.getElementById("skybox");
+                sky.setAttribute("src", data.linkto);
+
+                var spotcomp = document.getElementById("spots");
+                var currspots = this.parentElement.getAttribute("id");
+                //create event for spots component to change the spots data
+                spotcomp.emit('reloadspots', { newspots: data.spotgroup, currspots: currspots });
+            });
+        }
+    });
+</script>
 <!--<script type="text/javascript">
     function onSceneLoaded() {
         const raycaster = document.querySelector('[ar-raycaster]');
