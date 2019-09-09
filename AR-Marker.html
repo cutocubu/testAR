@@ -6,7 +6,7 @@
 <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
 <body style='margin : 0px; overflow: hidden;'>
 
-    <a-scene vr-mode-ui="enabled: false;debugUIEnabled: false;" embedded arjs='sourceType: webcam;' camera touch-controls>
+    <a-scene vr-mode-ui="enabled: false;debugUIEnabled: false;" embedded arjs='sourceType: webcam;' renderer='logarithmicDepthBuffer: true;' camera touch-controls>
         <a-assets>
             <audio id="sound" src="test.mp3" preload="auto"></audio>
         </a-assets>
@@ -15,6 +15,7 @@
             <a-entity position='0 0.5 0' rotation="-90 0 0" gltf-model="Bee.glb" scale="0.5 0.5 0.5" animation-mixer fix-scale soundhandler></a-entity>
             <!--<a-video src="asd.mp4"></a-video>-->
         </a-marker>
+        <a-marker-camera camera="far:100000; near:0.01"></a-marker-camera>
         <a-entity sound="src: #sound" autoplay="false"></a-entity>
         <a-entity camera></a-entity>
 
